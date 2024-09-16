@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PNG Asset Viewer</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+        }
+
+        h1 {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 0;
+            margin-bottom: 20px;
+        }
+
+        .folder-list {
+            margin-bottom: 20px;
+        }
+
+        .folder-list button {
+            margin: 5px;
+            padding: 10px;
+            background-color: #4CAF50;
+            border: none;
+            color: white;
+            cursor: pointer;
+        }
+
+        .folder-list button:hover {
+            background-color: #45a049;
+        }
+
+        .image-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .image-container img {
+            margin: 10px;
+            max-width: 300px;
+            height: auto;
+            border: 1px solid #ddd;
+            box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
+        }
+    </style>
+</head>
+<body>
+    <h1>PNG Asset Viewer</h1>
+
+    <div class="folder-list">
+        <button onclick="loadFolder('folder1')">Folder 1</button>
+        <button onclick="loadFolder('folder2')">Folder 2</button>
+        <!-- Add more buttons for additional folders -->
+    </div>
+
+    <div class="image-container" id="imageContainer">
+        <p>Select a folder to display images</p>
+    </div>
+
+    <script>
+        function loadFolder(folderName) {
+            const container = document.getElementById('imageContainer');
+            container.innerHTML = '';  // Clear the container
+
+            // List of images (you can dynamically generate this list based on actual folder contents)
+            const imageList = {
+                'folder1': ['assets/folder1/image1.png', 'assets/folder1/image2.png'],
+                'folder2': ['assets/folder2/image3.png']
+                // Add more folders and images here
+            };
+
+            if (imageList[folderName]) {
+                imageList[folderName].forEach(image => {
+                    const imgElement = document.createElement('img');
+                    imgElement.src = image;
+                    container.appendChild(imgElement);
+                });
+            } else {
+                container.innerHTML = `<p>No images found in ${folderName}</p>`;
+            }
+        }
+    </script>
+</body>
+</html>
