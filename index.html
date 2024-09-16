@@ -3,18 +3,18 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Cup Icon Viewer</title>
+    <title>CTGPDX Assets</title>
     <style>
         body {
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
-            background-color: #f4f4f4;
             text-align: center;
+            background-size: cover;
         }
 
         h1 {
-            background-color: #4CAF50;
+            background-color: #007BFF;
             color: white;
             padding: 10px 0;
             margin-bottom: 20px;
@@ -25,16 +25,21 @@
         }
 
         .folder-list button {
-            margin: 5px;
-            padding: 10px;
-            background-color: #4CAF50;
+            margin: 10px;
+            padding: 15px 30px;
+            background-color: #007BFF;
             border: none;
             color: white;
+            font-size: 16px;
+            font-weight: bold;
+            border-radius: 10px;
             cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
 
         .folder-list button:hover {
-            background-color: #45a049;
+            background-color: #0056b3;
+            transform: scale(1.05);
         }
 
         .image-container {
@@ -50,12 +55,55 @@
             border: 1px solid #ddd;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
         }
+
+        #ctgpdxLogo {
+            max-width: 400px;
+            margin: 20px auto;
+            display: block;
+        }
+
+        .hidden {
+            display: none;
+        }
+
+        /* Styling for CTGPDX button with the logo */
+        #ctgpdxButton {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 10px;
+            background-color: #007BFF;
+            color: white;
+            border-radius: 10px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+            border: none;
+        }
+
+        #ctgpdxButton img {
+            max-width: 50px;
+            margin-right: 10px;
+        }
+
+        #ctgpdxButton:hover {
+            background-color: #fb296f;
+            transform: scale(1.05);
+        }
     </style>
 </head>
 <body>
-    <h1>Cup Icon Viewer</h1>
+    <h1>CTGPDX Assets</h1>
 
-    <div class="folder-list">
+    <div class="folder-list" id="mainButtons">
+        <!-- CTGPDX Button with Logo -->
+        <button id="ctgpdxButton" onclick="enterCTGPDX()">
+            <img src="CTGPDX/Website/Logo/logo.png" alt="CTGPDX Logo">
+            Enter CTGPDX Section
+        </button>
+    </div>
+
+    <div class="folder-list hidden" id="ctgpdxButtons">
+        <img src="CTGPDX/Website/Logo/logo.png" alt="CTGPDX Logo" id="ctgpdxLogo">
         <button onclick="loadFolder('Packun')">Piranha Plant Cup</button>
         <button onclick="loadFolder('Penguin')">Penguin Cup</button>
         <button onclick="loadFolder('ShineSprite')">Shine Sprite Cup</button>
@@ -77,6 +125,21 @@
     </div>
 
     <script>
+        function enterCTGPDX() {
+            // Hide main buttons, show CTGPDX buttons
+            document.getElementById('mainButtons').classList.add('hidden');
+            document.getElementById('ctgpdxButtons').classList.remove('hidden');
+
+            // Random background image for CTGPDX section
+            const backgrounds = [
+                'CTGPDX/Website/Backgrounds/bg.png',
+                'CTGPDX/Website/Backgrounds/red.jpg',
+                'CTGPDX/Website/Backgrounds/yellow.jpg'
+            ];
+            const randomBg = backgrounds[Math.floor(Math.random() * backgrounds.length)];
+            document.body.style.backgroundImage = `url(${randomBg})`;
+        }
+
         function loadFolder(folderName) {
             const container = document.getElementById('imageContainer');
             container.innerHTML = '';  // Clear the container
@@ -91,6 +154,7 @@
                     `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
                     `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
                 ],
+                // Add other folders similarly
                 'ShineSprite': [
                     `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
                     `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
@@ -138,18 +202,15 @@
                 'Blooper': [
                     `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
                     `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
-                ]
+                ],
             };
 
-            if (imageList[folderName]) {
-                imageList[folderName].forEach(image => {
-                    const imgElement = document.createElement('img');
-                    imgElement.src = image;
-                    container.appendChild(imgElement);
-                });
-            } else {
-                container.innerHTML = `<p>No images found in ${folderName}</p>`;
-            }
+            // Display images
+            imageList[folderName].forEach(src => {
+                const img = document.createElement('img');
+                img.src = src;
+                container.appendChild(img);
+            });
         }
     </script>
 </body>
