@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PNG Asset Viewer</title>
+    <title>Cup Icon Viewer</title>
     <style>
         body {
             font-family: Arial, sans-serif;
@@ -45,7 +45,7 @@
 
         .image-container img {
             margin: 10px;
-            max-width: 300px;
+            max-width: 130px;
             height: auto;
             border: 1px solid #ddd;
             box-shadow: 2px 2px 5px rgba(0, 0, 0, 0.1);
@@ -53,12 +53,23 @@
     </style>
 </head>
 <body>
-    <h1>PNG Asset Viewer</h1>
+    <h1>Cup Icon Viewer</h1>
 
     <div class="folder-list">
-        <button onclick="loadFolder('folder1')">Folder 1</button>
-        <button onclick="loadFolder('folder2')">Folder 2</button>
-        <!-- Add more buttons for additional folders -->
+        <button onclick="loadFolder('Packun')">Piranha Plant Cup</button>
+        <button onclick="loadFolder('Penguin')">Penguin Cup</button>
+        <button onclick="loadFolder('ShineSprite')">Shine Sprite Cup</button>
+        <button onclick="loadFolder('Squid')">Splatoon Squid Cup</button>
+        <button onclick="loadFolder('SuperCrown')">Super Crown Cup</button>
+        <button onclick="loadFolder('SuperLeaf')">Super Leaf Cup</button>
+        <button onclick="loadFolder('MultiMoon')">Multi Moon Cup</button>
+        <button onclick="loadFolder('IceFlower')">Ice Flower Cup</button>
+        <button onclick="loadFolder('Heart')">Heart Cup</button>
+        <button onclick="loadFolder('GrandStar')">Grand Star Cup</button>
+        <button onclick="loadFolder('ExtraMushroom')">Extra Mushroom Cup</button>
+        <button onclick="loadFolder('CloudFlower')">Cloud Flower Cup</button>
+        <button onclick="loadFolder('Boo')">Boo Cup</button>
+        <button onclick="loadFolder('Blooper')">Blooper Cup</button>
     </div>
 
     <div class="image-container" id="imageContainer">
@@ -70,11 +81,64 @@
             const container = document.getElementById('imageContainer');
             container.innerHTML = '';  // Clear the container
 
-            // List of images (you can dynamically generate this list based on actual folder contents)
+            // Template for file name changes based on folder
             const imageList = {
-                'folder1': ['assets/folder1/image1.png', 'assets/folder1/image2.png'],
-                'folder2': ['assets/folder2/image3.png']
-                // Add more folders and images here
+                'Packun': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'Penguin': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'ShineSprite': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'Squid': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'SuperCrown': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'SuperLeaf': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'MultiMoon': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'IceFlower': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'Heart': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'GrandStar': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'ExtraMushroom': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'CloudFlower': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'Boo': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ],
+                'Blooper': [
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_130x130^h.png`,
+                    `CTGPDX/Cups/${folderName}/ym_CupIcon${folderName}_Line^s.png`
+                ]
             };
 
             if (imageList[folderName]) {
